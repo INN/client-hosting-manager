@@ -14,7 +14,8 @@ Donate link: https://inn.org/donate
 
 $org = array(
 	'name' => 'INN',
-	'email' => 'support@largoproject.org',
+	'support_email' => 'support@largoproject.org',
+	'admin_email' => 'largo@investigativenewsnetwork.org',
 	'domain' => '@inn.org'
 );
 
@@ -22,8 +23,8 @@ $org = array(
 function inn_hosting_manager_delete_user( $user_id ) {
 	global $wpdb, $org;
         $user_obj = get_userdata( $user_id );	
-	if ( strpos( $user_obj->user_email, $org['domain'] ) != false ) {
-		wp_die( 'You do not have permissions to delete ' . $org['name'] . ' users. Please contact <a href="mailto:' . $org['email'] . '">' . $org['email'] . '</a> for more information.' );
+	if ( $user_obj->user_email ===  $org['admin_email'] ) {
+		wp_die( 'You do not have permissions to delete ' . $org['name'] . ' users. Please contact <a href="mailto:' . $org['support_email'] . '">' . $org['support_email'] . '</a> for more information.' );
 	}
 }
 add_action( 'delete_user', 'inn_hosting_manager_delete_user' );
