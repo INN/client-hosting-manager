@@ -34,7 +34,7 @@ $org = array(
 	'name' => 'INN',
 	'support_email' => 'support@largoproject.org',
 	'admin_email' => 'largo@investigativenewsnetwork.org',
-	'domains' => array( 'inn.org', 'investigativenewsnetwork.org' );
+	'domains' => array( 'inn.org', 'investigativenewsnetwork.org' )
 );
 
 /**
