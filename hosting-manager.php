@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: INN Hosting Manager
-Plugin URI: 
-Description: Basic WordPress Plugin Header Comment
-Version:     1.0 
-Author:      inn_nerds 
+Plugin URI:
+Description: Hosting management plugin for INN-managed sites
+Version:     1.0
+Author:      inn_nerds
 Author URI:  https://profiles.wordpress.org/inn_nerds/#content-plugins
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ $org = array(
 
 function inn_hosting_manager_delete_user( $user_id ) {
 	global $wpdb, $org;
-        $user_obj = get_userdata( $user_id );	
+	$user_obj = get_userdata( $user_id );
 	if ( strpos( $user_obj->user_email, $org['domain'] ) != false ) {
 		wp_die( 'You do not have permissions to delete ' . $org['name'] . ' users. Please contact <a href="mailto:' . $org['email'] . '">' . $org['email'] . '</a> for more information.' );
 	}
