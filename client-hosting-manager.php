@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Client Hosting Manager
  * Plugin URI:        https://github.com/INN/client-hosting-manager
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Hosting management plugin for INN-managed sites.
  * Version:           1.0.0
  * Author:            inn_nerds
  * Author URI:        https://profiles.wordpress.org/inn_nerds/
