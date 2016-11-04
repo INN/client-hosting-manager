@@ -35,7 +35,7 @@ function client_hosting_manager_get_org_data() {
 		'name' => 'INN',
 		'support_email' => 'support@largoproject.org',
 		'admin_email' => 'largo@investigativenewsnetwork.org',
-		'domains' => array( 'inn.org', 'investigativenewsnetwork.org' )
+		'domains' => array( 'inn.org', 'investigativenewsnetwork.org', 'wpengine.com' )
 	);
 	return $org;
 }
