@@ -95,7 +95,10 @@ function client_hosting_manager_update_caps( $action, $object ) {
 		'edit_plugins',
 		'install_themes',
 		'switch_themes',
-		'edit_themes'
+		'edit_themes',
+		'update_core',
+		'update_plugins',
+		'update_themes'
 	);
 
 	foreach ( $caps as $cap ) {
