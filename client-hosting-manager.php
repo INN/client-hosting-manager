@@ -35,7 +35,7 @@ function client_hosting_manager_get_org_data() {
 		'name' => 'INN',
 		'support_email' => 'support@largoproject.org',
 		'admin_email' => 'largo@investigativenewsnetwork.org',
-		'domains' => array( 'inn.org', 'investigativenewsnetwork.org', 'wpengine.com' )
+		'domains' => array( 'inn.org', 'investigativenewsnetwork.org', 'wpengine.com' ),
 	);
 	return $org;
 }
@@ -55,7 +55,7 @@ function activate_client_hosting_manager() {
 	$admins = get_users( array( 'role' => 'administrator' ) );
 	foreach ( $admins as $admin ) {
 		foreach ( $org['domains'] as $domain ) {
-			if ( strpos( $admin->data->user_email, $domain ) != false ) {
+			if ( strpos( $admin->data->user_email, $domain ) !== false ) {
 				$user = get_user_by( 'email', $admin->data->user_email );
 				client_hosting_manager_update_caps( 'add', $user );
 			}
@@ -79,7 +79,7 @@ function deactivate_client_hosting_manager( $org ) {
 	$admins = get_users( array( 'role' => 'administrator' ) );
 	foreach ( $admins as $admin ) {
 		foreach ( $org['domains'] as $domain ) {
-			if ( strpos( $admin->data->user_email, $domain ) != false ) {
+			if ( strpos( $admin->data->user_email, $domain ) !== false ) {
 				$user = get_user_by( 'email', $admin->data->user_email );
 				client_hosting_manager_update_caps( 'remove', $user );
 			}
@@ -98,7 +98,7 @@ function client_hosting_manager_update_caps( $action, $object ) {
 		'edit_themes',
 		'update_core',
 		'update_plugins',
-		'update_themes'
+		'update_themes',
 	);
 
 	foreach ( $caps as $cap ) {
@@ -130,8 +130,8 @@ class Client_Hosting_Manager {
 	public function delete_user( $user_id ) {
 		global $wpdb, $org;
 		$user_obj = get_userdata( $user_id );
-		if ( $user_obj->user_email ===  $org['admin_email'] ) {
-			wp_die( 'You do not have permissions to delete ' . $org['name'] . ' users. Please contact <a href="mailto:' . $org['support_email'] . '">' . $org['support_email'] . '</a> for more information.' );
+		if ( $user_obj->user_email === $org['admin_email'] ) {
+			wp_die( 'You do not have permissions to delete ' . esc_html( $org['name'] ) . ' users. Please contact <a href="mailto:' . esc_html( $org['support_email'] ) . '">' . esc_html( $org['support_email'] ) . '</a> for more information.' );
 		}
 	}
 
@@ -145,7 +145,7 @@ class Client_Hosting_Manager {
 		$org = client_hosting_manager_get_org_data();
 		$user = get_userdata( $user_id );
 		foreach ( $org['domains'] as $domain ) {
-			if ( strpos( $user->user_email, $domain ) != false && in_array( 'administrator', $user->roles ) ) {
+			if ( strpos( $user->user_email, $domain ) !== false && in_array( 'administrator', $user->roles, true ) ) {
 				client_hosting_manager_update_caps( 'add', $user );
 			}
 		}
@@ -163,18 +163,17 @@ class Client_Hosting_Manager {
 	public function user_role_update( $user_id, $old_role, $new_role ) {
 		$org = client_hosting_manager_get_org_data();
 
-		if ( 'administrator' == $new_role && 'administrator' != $old_role ) {
+		if ( 'administrator' === $new_role && 'administrator' !== $old_role ) {
 			$user = get_userdata( $user_id );
 			foreach ( $org['domains'] as $domain ) {
-				if ( strpos( $user->user_email, $domain ) != false ) {
+				if ( strpos( $user->user_email, $domain ) !== false ) {
 					client_hosting_manager_update_caps( 'add', $user );
 				}
 			}
-		}
-		elseif ( 'administrator' != $new_role && 'administrator' == $old_role ) {
+		} elseif ( 'administrator' !== $new_role && 'administrator' === $old_role ) {
 			$user = get_userdata( $user_id );
 			foreach ( $org['domains'] as $domain ) {
-				if ( strpos( $user->user_email, $domain ) != false ) {
+				if ( strpos( $user->user_email, $domain ) !== false ) {
 					client_hosting_manager_update_caps( 'remove', $user );
 				}
 			}
