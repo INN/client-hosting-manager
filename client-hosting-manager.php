@@ -54,22 +54,6 @@ final class Client_Hosting_Manager {
 	const VERSION = '1.0.0';
 
 	/**
-	 * URL of plugin directory
-	 *
-	 * @var string
-	 * @since  1.0.0
-	 */
-	protected $url = '';
-
-	/**
-	 * Path of plugin directory
-	 *
-	 * @var string
-	 * @since  1.0.0
-	 */
-	protected $path = '';
-
-	/**
 	 * Plugin basename
 	 *
 	 * @var string
@@ -119,27 +103,12 @@ final class Client_Hosting_Manager {
 	}
 
 	/**
-	 * Attach other plugin classes to the base plugin class.
-	 *
-	 * @since  1.0.0
-	 * @return void
-	 */
-	public function plugin_classes() {
-		// Attach other plugin classes to the base plugin class.
-		// $this->plugin_class = new CHM_Plugin_Class( $this );
-	} // END OF PLUGIN CLASSES FUNCTION
-
-	/**
 	 * Add hooks and filters
 	 *
 	 * @since  1.0.0
 	 * @return void
 	 */
 	public function hooks() {
-		// Priority needs to be:
-		// < 10 for CPT_Core,
-		// < 5 for Taxonomy_Core,
-		// 0 Widgets because widgets_init runs at init priority 1.
 		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'delete_user', array( $this, 'delete_user' ), 10, 1 );
 		add_action( 'user_register', array( $this, 'user_registration' ), 10, 1 );
@@ -313,9 +282,6 @@ final class Client_Hosting_Manager {
 
 		// Load translated strings for plugin.
 		load_plugin_textdomain( 'client-hosting-manager', false, dirname( $this->basename ) . '/languages/' );
-
-		// Initialize plugin classes.
-		$this->plugin_classes();
 	}
 
 	/**

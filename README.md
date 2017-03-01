@@ -27,10 +27,10 @@ Capability management for agency/client hosting relationships
 
 ## Changelog ##
 
-### 1.2.0 ###
+### 1.0.0 ###
 * Initial public release
 
 ## Upgrade Notice ##
 
-### 1.2.0 ###
+### 1.0.0 ###
 Initial public Release
