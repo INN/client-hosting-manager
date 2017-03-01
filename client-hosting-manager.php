@@ -122,6 +122,12 @@ final class Client_Hosting_Manager {
 	 * @return void
 	 */
 	public function _activate() {
+		// Bail early if requirements aren't met.
+		if ( ! $this->check_requirements() ) {
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+			return;
+		}
+
 		$org = $this->org_data();
 		$administrator = get_role( 'administrator' );
 		$this->client_hosting_manager_update_caps( 'remove', $administrator );
@@ -367,8 +373,8 @@ final class Client_Hosting_Manager {
 		// Output errors.
 		?>
 		<div id="message" class="error">
-			<p><?php echo esc_html( $default_message ); ?></p>
-			<?php echo esc_html( $details ); ?>
+			<p><?php echo $default_message; ?></p>
+			<?php echo $details; ?>
 		</div>
 		<?php
 	}
