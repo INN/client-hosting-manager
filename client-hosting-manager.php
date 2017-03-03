@@ -124,7 +124,6 @@ final class Client_Hosting_Manager {
 	public function _activate() {
 		// Bail early if requirements aren't met.
 		if ( ! $this->check_requirements() ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
 			return;
 		}
 
