@@ -45,7 +45,7 @@ The plugin also prevents the site administrator's account from being deleted, in
 		```
 		define( 'client_hosting_manager_org_name', 'Example Organization' );
 		define( 'client_hosting_manager_support_email', 'support@example.org' );
-		define( 'client_hosting_manager_admin_email', 'admin@inn.org' );
+		define( 'client_hosting_manager_admin_email', 'admin@example.org' );
 		define( 'client_hosting_manager_domains', 'people-in-these-domains-have-access-to-plugins.example.com,mail.example.com' );
 		```
 3. Activate Client Hosting Manager through the 'Plugins' menu in WordPress.
