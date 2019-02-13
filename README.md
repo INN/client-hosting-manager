@@ -8,7 +8,7 @@
 **License:**           GPLv2
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
-Capability management for agency/client hosting relationships
+Capability management for agency/client hosting relationships.
 
 ## Description ##
 
@@ -35,19 +35,22 @@ The plugin also prevents the site administrator's account from being deleted, in
 
 1. Upload the entire `/client-hosting-manager` directory to the `/wp-content/plugins/` directory.
 2. In your site's `wp-config.php`, add the following code and replace the bracketed text with information appropriate to your site:
-		```
-		define( 'client_hosting_manager_org_name', '[organization name]' );
-		define( 'client_hosting_manager_support_email', '[email address that users should contact for support]' );
-		define( 'client_hosting_manager_admin_email', '[email address of master account that should not be deleted]' );
-		define( 'client_hosting_manager_domains', '[comma-separated list of domains]' );
-		```
+
+	```php
+	define( 'client_hosting_manager_org_name', '[organization name]' );
+	define( 'client_hosting_manager_support_email', '[email address that users should contact for support]' );
+	define( 'client_hosting_manager_admin_email', '[email address of master account that should not be deleted]' );
+	define( 'client_hosting_manager_domains', '[comma-separated list of domains]' );
+	```
+
 	For example:
-		```
-		define( 'client_hosting_manager_org_name', 'Example Organization' );
-		define( 'client_hosting_manager_support_email', 'support@example.org' );
-		define( 'client_hosting_manager_admin_email', 'admin@example.org' );
-		define( 'client_hosting_manager_domains', 'people-in-these-domains-have-access-to-plugins.example.com,mail.example.com' );
-		```
+
+	```php
+	define( 'client_hosting_manager_org_name', 'Example Organization' );
+	define( 'client_hosting_manager_support_email', 'support@example.org' );
+	define( 'client_hosting_manager_admin_email', 'admin@example.org' );
+	define( 'client_hosting_manager_domains', 'people-in-these-domains-have-access-to-plugins.example.com,mail.example.com' );
+	```
 3. Activate Client Hosting Manager through the 'Plugins' menu in WordPress.
 
 ## Frequently Asked Questions ##
