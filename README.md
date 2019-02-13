@@ -1,14 +1,14 @@
 # Client Hosting Manager #
-**Contributors:**      inn_nerds
-**Donate link:**       https://nerds.inn.org
+**Contributors:**      inn_nerds  
+**Donate link:**       https://labs.inn.org  
 **Tags:**
-**Requires at least:** 4.4
-**Tested up to:**      4.9
-**Stable tag:**        1.0.0
-**License:**           GPLv2
-**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
+**Requires at least:** 4.4  
+**Tested up to:**      4.9  
+**Stable tag:**        1.0.0  
+**License:**           GPLv2  
+**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
-Capability management for agency/client hosting relationships.
+🚨 **No longer updated or maintained.** Capability management for agency/client hosting relationships.
 
 ## Description ##
 
